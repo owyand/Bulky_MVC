@@ -56,9 +56,12 @@ namespace BulkyWeb.Controllers
                 return NotFound();
             }
 
+            //works on primary key (which ID is)
             Category catFromDb = _db.Categories.Find(id);
-            Category catFromDb1 = _db.Categories.FirstOrDefaut(id);
-            Category catFromDb2 = _db.Categories.Find(id);
+            //works on any property -- preferred
+            Category catFromDb1 = _db.Categories.FirstOrDefaut(u => u.Id == id);
+            //also works for any property
+            Category catFromDb2 = _db.Categories.Where(u => u.Id == id).FirstOrDefault();
 
             if (catFromDb == null)
             {
