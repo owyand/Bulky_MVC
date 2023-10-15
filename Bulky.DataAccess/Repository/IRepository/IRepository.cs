@@ -2,7 +2,7 @@
 
 namespace Bulky.DataAccess.Repository.IRepository
 {
-    public interface IRepository<in T> where T : class
+    public interface IRepository<T> where T : class
     {
         //T - Category or any other generic model on which we want to interact with DBContext
 
@@ -15,9 +15,5 @@ namespace Bulky.DataAccess.Repository.IRepository
         void Add(T entity);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entities);
-
-
-
-
     }
 }
