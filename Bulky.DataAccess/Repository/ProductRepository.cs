@@ -11,6 +11,7 @@ namespace Bulky.DataAccess.Repository
         {
             _context = context;
         }
+
         public void Update(Product obj)
         {
             _context.Products.Update(obj);

@@ -13,20 +13,20 @@ namespace Bulky.DataAccess.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropPrimaryKey(
-                name: "PK_Categories",
-                table: "Categories");
+                name: "PK_Category",
+                table: "Category");
 
             migrationBuilder.RenameTable(
-                name: "Categories",
-                newName: "Category");
+                name: "Category",
+                newName: "Categories");
 
             migrationBuilder.AddPrimaryKey(
-                name: "PK_Category",
-                table: "Category",
+                name: "PK_Categories",
+                table: "Categories",
                 column: "Id");
 
             migrationBuilder.CreateTable(
-                name: "Product",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -42,11 +42,11 @@ namespace Bulky.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Product", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
-                table: "Product",
+                table: "Products",
                 columns: new[] { "Id", "Author", "Description", "ISBN", "ListPrice", "Price", "Price100", "Price50", "Title" },
                 values: new object[,]
                 {
@@ -63,19 +63,19 @@ namespace Bulky.DataAccess.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Product");
+                name: "Products");
 
             migrationBuilder.DropPrimaryKey(
-                name: "PK_Category",
-                table: "Category");
+                name: "PK_Categories",
+                table: "Categories");
 
             migrationBuilder.RenameTable(
-                name: "Category",
-                newName: "Categories");
+                name: "Categories",
+                newName: "Category");
 
             migrationBuilder.AddPrimaryKey(
-                name: "PK_Categories",
-                table: "Categories",
+                name: "PK_Category",
+                table: "Category",
                 column: "Id");
         }
     }
