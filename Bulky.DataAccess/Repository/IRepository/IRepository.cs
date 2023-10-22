@@ -7,10 +7,10 @@ namespace Bulky.DataAccess.Repository.IRepository
         //T - Category or any other generic model on which we want to interact with DBContext
 
         //CRUD operations
-        IEnumerable<T> GetAll();
+        IEnumerable<T> GetAll(string? includeProperties = null);
 
         //Find operation on DB only works for Id FirstOrDefault uses LINQ and can find by any parameter
-        T Get(Expression<Func<T, bool>> filter);
+        T Get(Expression<Func<T, bool>> filter, string? includeProperties = null);
 
         void Add(T entity);
         void Remove(T entity);
